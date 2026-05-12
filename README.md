@@ -20,8 +20,23 @@ Feel free to contribute by suggesting new titles, correcting errors, or organizi
 
 ---
 
+## Library layout
+
+PDFs are grouped by publisher, then by imprint or series. Use plain ASCII in file names (regular hyphens, not special dash characters), and put editions in parentheses, for example `Title (3rd Edition).pdf`.
+
+| Location | Contents |
+| --- | --- |
+| `For Dummies/` | For Dummies titles |
+| `OReilly/Cookbooks/` | O'Reilly cookbook-style titles |
+| `OReilly/Head First/` | Head First series |
+| `OReilly/Learning/` | Learning … series |
+| `OReilly/In a Nutshell/` | … in a Nutshell series |
+| `OReilly/General/` | Other O'Reilly titles that are not part of the series folders above |
+
+---
+
 ## How to Contribute
 
 1. Fork the repository.
-2. Add your recommended book(s) under the appropriate category.
+2. Add PDFs under the folder that matches the publisher and series, using the naming style above.
 3. Submit a pull request with a short explanation of your changes.
