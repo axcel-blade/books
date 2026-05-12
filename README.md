@@ -35,8 +35,22 @@ PDFs are grouped by publisher, then by imprint or series. Use plain ASCII in fil
 
 ---
 
-## How to Contribute
+## How to Contribute (book uploads)
 
-1. Fork the repository.
-2. Add PDFs under the folder that matches the publisher and series, using the naming style above.
-3. Submit a pull request with a short explanation of your changes.
+Use the **`upload-books`** branch so additions are reviewed together before they land on `main`.
+
+1. Fork the repository and clone your fork.
+2. Add this repository as `upstream` (optional but helpful) and fetch **`upload-books`**:
+   ```bash
+   git remote add upstream https://github.com/<owner>/books.git
+   git fetch upstream upload-books
+   git checkout -b my-new-books upstream/upload-books
+   ```
+   If your fork does not have `upload-books` yet, create it from `upstream/upload-books` in the GitHub UI, or run `git push origin upload-books` once you have that branch locally (see branch note below).
+3. Add PDFs under **`For Dummies/`** or **`OReilly/<series>/`**, using the naming style in [Library layout](#library-layout).
+4. Commit, push to your fork, and open a **pull request into `upload-books`** (base = `upload-books`, compare = your branch). A GitHub Action checks that only allowed PDF paths changed and that each file is under 95 MiB.
+5. After review, a maintainer merges your PR into `upload-books`, then merges **`upload-books` → `main`** when the batch is ready.
+
+**Repository maintainers:** ensure branch **`upload-books`** exists on GitHub (same tip as `main` is fine). If it is missing, create it from the current default branch and push: `git checkout -b upload-books main && git push -u origin upload-books`.
+
+Other changes (README, workflows, renames) should use a normal pull request **into `main`**, not the upload-only flow.
